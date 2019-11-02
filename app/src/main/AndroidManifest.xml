@@ -31,24 +31,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.ShareAnimationActivityA"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.ShareAnimationActivityB"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.InputUrlPlayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/FullScreenTheme" />
-        <activity
-            android:name=".ui.listplay.MultiListActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
 
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.window.HomeActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -56,28 +41,10 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.window.WindowVideoViewActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.window.FloatWindowActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.listplay.ListPlayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.DetailPlayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.ViewPagerPlayActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.TestPlayActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

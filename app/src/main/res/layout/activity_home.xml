@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/id_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -45,18 +45,6 @@
                 android:textColor="@color/buttonTextColor"/>
 
             <Button
-                android:id="@+id/tv_window_videoView"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="useWindowVideoView"
-                android:textAllCaps="false"
-                android:text="WindowVideoView的使用"
-                android:textSize="16sp"
-                android:textColor="@color/buttonTextColor"/>
-
-            <Button
                 android:id="@+id/tv_window_play"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -78,53 +66,6 @@
                 android:text="列表播放全屏切换、无缝续播"
                 android:textSize="14sp"
                 android:textColor="#000000"/>
-
-            <Button
-                android:id="@+id/tv_pager_play"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="viewPagerPlay"
-                android:textAllCaps="false"
-                android:text="ViewPager中播放"
-                android:textSize="16sp"
-                android:textColor="@color/buttonTextColor"/>
-
-            <Button
-                android:id="@+id/tv_local_video"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="singleListPlay"
-                android:textAllCaps="false"
-                android:text="单列表播放"
-                android:textSize="16sp"
-                android:textColor="@color/buttonTextColor"/>
-
-            <Button
-                android:id="@+id/tv_multi_list"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="multiListPlay"
-                android:textAllCaps="false"
-                android:text="多列表播放"
-                android:textSize="16sp"
-                android:textColor="@color/buttonTextColor"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="shareAnimationVideos"
-                android:textAllCaps="false"
-                android:text="共享元素转场动画"
-                android:textSize="16sp"
-                android:textColor="@color/buttonTextColor"/>
 
             <TextView
                 android:layout_width="match_parent"

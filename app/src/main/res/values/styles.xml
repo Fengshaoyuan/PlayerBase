@@ -27,9 +27,4 @@
         <item name="colorButtonNormal">@android:color/white</item>
     </style>
 
-    <style name="MyEditText" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@color/edit_base_line_color</item>
-        <item name="colorControlActivated">@color/edit_base_line_color</item>
-    </style>
-
 </resources>
