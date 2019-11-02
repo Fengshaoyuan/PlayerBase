@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.exoplayer;
 
 import android.content.Context;
@@ -66,6 +50,11 @@ import com.kk.taurus.playerbase.player.IPlayer;
 
 import java.util.HashMap;
 
+/**
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:ExoMediaPlayer
+ */
 public class ExoMediaPlayer extends BaseInternalPlayer {
 
     private final String TAG = "ExoMediaPlayer";
@@ -397,28 +386,26 @@ public class ExoMediaPlayer extends BaseInternalPlayer {
             }
 
             if(isPreparing){
-                switch (playbackState){
-                    case Player.STATE_READY:
-                        isPreparing = false;
-                        Format format = mInternalPlayer.getVideoFormat();
-                        Bundle bundle = BundlePool.obtain();
-                        if(format!=null){
-                            bundle.putInt(EventKey.INT_ARG1, format.width);
-                            bundle.putInt(EventKey.INT_ARG2, format.height);
-                        }
-                        updateStatus(IPlayer.STATE_PREPARED);
-                        submitPlayerEvent(OnPlayerEventListener.PLAYER_EVENT_ON_PREPARED, bundle);
+                if (playbackState == Player.STATE_READY) {
+                    isPreparing = false;
+                    Format format = mInternalPlayer.getVideoFormat();
+                    Bundle bundle = BundlePool.obtain();
+                    if (format != null) {
+                        bundle.putInt(EventKey.INT_ARG1, format.width);
+                        bundle.putInt(EventKey.INT_ARG2, format.height);
+                    }
+                    updateStatus(IPlayer.STATE_PREPARED);
+                    submitPlayerEvent(OnPlayerEventListener.PLAYER_EVENT_ON_PREPARED, bundle);
 
-                        if(playWhenReady){
-                            updateStatus(STATE_STARTED);
-                            submitPlayerEvent(OnPlayerEventListener.PLAYER_EVENT_ON_START, null);
-                        }
+                    if (playWhenReady) {
+                        updateStatus(STATE_STARTED);
+                        submitPlayerEvent(OnPlayerEventListener.PLAYER_EVENT_ON_START, null);
+                    }
 
-                        if(mStartPos > 0){
-                            mInternalPlayer.seekTo(mStartPos);
-                            mStartPos = -1;
-                        }
-                        break;
+                    if (mStartPos > 0) {
+                        mInternalPlayer.seekTo(mStartPos);
+                        mStartPos = -1;
+                    }
                 }
             }
 
@@ -437,11 +424,9 @@ public class ExoMediaPlayer extends BaseInternalPlayer {
             }
 
             if(isPendingSeek){
-                switch (playbackState){
-                    case Player.STATE_READY:
-                        isPendingSeek = false;
-                        submitPlayerEvent(OnPlayerEventListener.PLAYER_EVENT_ON_SEEK_COMPLETE, null);
-                        break;
+                if (playbackState == Player.STATE_READY) {
+                    isPendingSeek = false;
+                    submitPlayerEvent(OnPlayerEventListener.PLAYER_EVENT_ON_SEEK_COMPLETE, null);
                 }
             }
 

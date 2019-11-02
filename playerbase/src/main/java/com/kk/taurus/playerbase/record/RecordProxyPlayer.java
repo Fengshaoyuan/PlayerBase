@@ -8,7 +8,9 @@ import com.kk.taurus.playerbase.player.IPlayer;
 import com.kk.taurus.playerbase.player.IPlayerProxy;
 
 /**
- * Created by Taurus on 2018/12/12.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
 public class RecordProxyPlayer implements IPlayerProxy {
 

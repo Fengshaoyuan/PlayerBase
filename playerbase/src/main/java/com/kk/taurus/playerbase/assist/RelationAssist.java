@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.assist;
 
 import android.content.Context;
@@ -42,8 +26,9 @@ import com.kk.taurus.playerbase.render.RenderTextureView;
 import com.kk.taurus.playerbase.widget.SuperContainer;
 
 /**
- *
- * Created by Taurus on 2018/5/21.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:RawDataSourceProvider
  *
  * This class is mainly used for association between player and component view.
  * For example, maybe you need to switch playback in different views.
@@ -284,8 +269,8 @@ public final class RelationAssist implements AssistPlay {
 
     /**
      * see also {@link AVPlayer#option(int, Bundle)}
-     * @param code
-     * @param bundle
+     * @param code code
+     * @param bundle bundle
      */
     public void option(int code, Bundle bundle){
         mPlayer.option(code, bundle);
@@ -307,7 +292,7 @@ public final class RelationAssist implements AssistPlay {
      * {@link IRender#RENDER_TYPE_TEXTURE_VIEW}
      * {@link IRender#RENDER_TYPE_SURFACE_VIEW}
      *
-     * @param renderType
+     * @param renderType renderType
      */
     @Override
     public void setRenderType(int renderType){
@@ -339,7 +324,7 @@ public final class RelationAssist implements AssistPlay {
 
     /**
      * Associate the playback view to the specified container
-     * @param userContainer
+     * @param userContainer userContainer
      */
     @Override
     public void attachContainer(ViewGroup userContainer) {
@@ -456,7 +441,7 @@ public final class RelationAssist implements AssistPlay {
 
     private void detachSuperContainer(){
         ViewParent parent = mSuperContainer.getParent();
-        if(parent!=null && parent instanceof ViewGroup){
+        if(parent instanceof ViewGroup){
             ((ViewGroup) parent).removeView(mSuperContainer);
         }
     }

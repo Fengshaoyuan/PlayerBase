@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase;
 
 import android.os.Bundle;
@@ -39,9 +23,10 @@ import com.kk.taurus.playerbase.record.PlayValueGetter;
 import com.kk.taurus.playerbase.record.RecordProxyPlayer;
 
 /**
- * Created by Taurus on 2018/3/17.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
-
 public final class AVPlayer implements IPlayer{
 
     private final String TAG = "AVPlayer";
@@ -75,7 +60,7 @@ public final class AVPlayer implements IPlayer{
 
     /**
      * setting a decoder plan id for init instance.
-     * @param decoderPlanId
+     * @param decoderPlanId decoderPlanId
      */
     public AVPlayer(int decoderPlanId){
         handleRecordProxy();
@@ -177,7 +162,7 @@ public final class AVPlayer implements IPlayer{
 
     /**
      * setting timer proxy state. default open.
-     * @param useTimerProxy
+     * @param useTimerProxy useTimerProxy
      */
     public void setUseTimerProxy(boolean useTimerProxy) {
         mTimerCounterProxy.setUseProxy(useTimerProxy);
@@ -303,7 +288,7 @@ public final class AVPlayer implements IPlayer{
     /**
      * if you need , you can set a data provider.{@link IDataProvider}
      * you need call this method before {@link this#setDataSource(DataSource)}.
-     * @param dataProvider
+     * @param dataProvider dataProvider
      */
     public void setDataProvider(IDataProvider dataProvider){
         if(mDataProvider!=null)
@@ -327,28 +312,24 @@ public final class AVPlayer implements IPlayer{
         public void onProviderDataSuccess(int code, Bundle bundle) {
             if(mOnProviderListener!=null)
                 mOnProviderListener.onProviderDataSuccess(code, bundle);
-            switch (code){
-                //on data provider load data success,need set data to decoder player.
-                case IDataProvider.PROVIDER_CODE_SUCCESS_MEDIA_DATA:
-                    if(bundle!=null){
-                        Object obj = bundle.getSerializable(EventKey.SERIALIZABLE_DATA);
-                        if(obj==null || !(obj instanceof DataSource)){
-                            throw new RuntimeException("provider media success SERIALIZABLE_DATA must type of DataSource!");
-                        }
-                        DataSource data = (DataSource) obj;
-                        PLog.d(TAG,"onProviderDataSuccessMediaData : DataSource = " + data);
-                        interPlayerSetDataSource(data);
-                        internalPlayerStart(data.getStartPos());
-                        //success video data call back.
-                        callBackPlayEventListener(
-                                OnPlayerEventListener.PLAYER_EVENT_ON_PROVIDER_DATA_SUCCESS, bundle);
+            //on data provider load data success,need set data to decoder player.
+            if (code == IDataProvider.PROVIDER_CODE_SUCCESS_MEDIA_DATA) {
+                if (bundle != null) {
+                    Object obj = bundle.getSerializable(EventKey.SERIALIZABLE_DATA);
+                    if (!(obj instanceof DataSource)) {
+                        throw new RuntimeException("provider media success SERIALIZABLE_DATA must type of DataSource!");
                     }
-                    break;
-                default:
-                    //success other code ,for example ,maybe IDataProvider.PROVIDER_CODE_EXTRA_DATA
-                    //Usually, these state codes are customizable by the user.
-                    callBackPlayEventListener(code, bundle);
-                    break;
+                    DataSource data = (DataSource) obj;
+                    PLog.d(TAG, "onProviderDataSuccessMediaData : DataSource = " + data);
+                    interPlayerSetDataSource(data);
+                    internalPlayerStart(data.getStartPos());
+                    //success video data call back.
+                    callBackPlayEventListener(
+                            OnPlayerEventListener.PLAYER_EVENT_ON_PROVIDER_DATA_SUCCESS, bundle);
+                }
+            } else {//success other code ,for example ,maybe IDataProvider.PROVIDER_CODE_EXTRA_DATA
+                //Usually, these state codes are customizable by the user.
+                callBackPlayEventListener(code, bundle);
             }
         }
 
@@ -420,7 +401,7 @@ public final class AVPlayer implements IPlayer{
     /**
      * If you want to start play at a specified time,
      * please set this method.
-     * @param msc
+     * @param msc msc
      */
     @Override
     public void start(int msc) {

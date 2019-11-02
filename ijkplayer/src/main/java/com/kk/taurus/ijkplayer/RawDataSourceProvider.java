@@ -11,6 +11,11 @@ import java.io.InputStream;
 
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 
+/**
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:RawDataSourceProvider
+ */
 public class RawDataSourceProvider implements IMediaDataSource {
 
     private AssetFileDescriptor mDescriptor;
@@ -69,7 +74,7 @@ public class RawDataSourceProvider implements IMediaDataSource {
         int bufferSize = 1024;
         byte[] buffer = new byte[bufferSize];
 
-        int len = 0;
+        int len;
         while ((len = inputStream.read(buffer)) != -1) {
             byteBuffer.write(buffer, 0, len);
         }

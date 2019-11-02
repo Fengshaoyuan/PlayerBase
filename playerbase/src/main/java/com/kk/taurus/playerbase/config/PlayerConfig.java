@@ -1,28 +1,14 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.config;
 
-import android.support.v4.util.SparseArrayCompat;
+import androidx.collection.SparseArrayCompat;
 
 import com.kk.taurus.playerbase.entity.DecoderPlan;
 import com.kk.taurus.playerbase.player.SysMediaPlayer;
 
 /**
- * Created by Taurus on 2018/3/17.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  *
  * The configuration of the player is used for
  * the management of the decoder scheme.
@@ -62,7 +48,7 @@ public class PlayerConfig {
 
     /**
      * setting default DecoderPlanId.
-     * @param planId
+     * @param planId planId
      */
     public static void setDefaultPlanId(int planId){
         defaultPlanId = planId;
@@ -70,7 +56,7 @@ public class PlayerConfig {
 
     /**
      * get current DecoderPlanId.
-     * @return
+     * @return int
      */
     public static int getDefaultPlanId(){
         return defaultPlanId;
@@ -86,8 +72,8 @@ public class PlayerConfig {
 
     /**
      * Judging the legality of planId.
-     * @param planId
-     * @return
+     * @param planId planId
+     * @return boolean
      */
     public static boolean isLegalPlanId(int planId){
         DecoderPlan plan = getPlan(planId);

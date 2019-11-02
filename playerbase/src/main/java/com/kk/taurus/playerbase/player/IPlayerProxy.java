@@ -5,7 +5,9 @@ import android.os.Bundle;
 import com.kk.taurus.playerbase.entity.DataSource;
 
 /**
- * Created by Taurus on 2018/12/12.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
 public interface IPlayerProxy {
 

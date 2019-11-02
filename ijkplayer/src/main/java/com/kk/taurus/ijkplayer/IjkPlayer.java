@@ -4,7 +4,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.media.AudioManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,14 +23,16 @@ import com.kk.taurus.playerbase.log.PLog;
 import com.kk.taurus.playerbase.player.BaseInternalPlayer;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 /**
- * Created by Taurus on 2018/4/18.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:IjkPlayer
  */
-
 public class IjkPlayer extends BaseInternalPlayer {
     private final String TAG = "IjkPlayer";
 
@@ -69,7 +70,7 @@ public class IjkPlayer extends BaseInternalPlayer {
         //设置清除dns cache
         //IjkMediaPlayer.OPT_CATEGORY_FORMAT, "dns_cache_clear", 1
 
-        //open mediacodec
+        //open media codec
         ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "mediacodec", 1);
         ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "mediacodec-hevc", 1);
 
@@ -132,7 +133,7 @@ public class IjkPlayer extends BaseInternalPlayer {
                 else
                     mMediaPlayer.setDataSource(data, headers);
             }else if(uri!=null){
-                if(uri.getScheme().equals(ContentResolver.SCHEME_ANDROID_RESOURCE)){
+                if(Objects.equals(uri.getScheme(), ContentResolver.SCHEME_ANDROID_RESOURCE)){
                     mMediaPlayer.setDataSource(RawDataSourceProvider.create(applicationContext, uri));
                 }else{
                     if(headers==null)
@@ -142,8 +143,7 @@ public class IjkPlayer extends BaseInternalPlayer {
                 }
             }else if(!TextUtils.isEmpty(assetsPath)){
                 Log.e(TAG,"ijkplayer not support assets play, you can use raw play.");
-            }else if(rawId > 0
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+            }else if(rawId > 0){
                 Uri rawUri = DataSource.buildRawPath(applicationContext.getPackageName(), rawId);
                 mMediaPlayer.setDataSource(RawDataSourceProvider.create(applicationContext, rawUri));
             }
@@ -520,12 +520,6 @@ public class IjkPlayer extends BaseInternalPlayer {
                     PLog.d(TAG, "Error: " + framework_err + "," + impl_err);
                     updateStatus(STATE_ERROR);
                     mTargetState = STATE_ERROR;
-
-                    switch (framework_err){
-                        case 100:
-//                            release(true);
-                            break;
-                    }
 
                     /* If an error handler has been supplied, use it and finish. */
                     Bundle bundle = BundlePool.obtain();

@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.window;
 
 import android.animation.Animator;
@@ -22,8 +6,9 @@ import android.view.View;
 import android.view.WindowManager;
 
 /**
- *
- * Created by Taurus on 2018/5/27.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  *
  * Used for window playback. Automatically add and remove on WindowManager.
  * The default window type is TYPE_TOAST{@link WindowManager.LayoutParams#TYPE_TOAST}.
@@ -47,34 +32,34 @@ public interface IWindow {
 
     /**
      * set window listener to listen window state, show or close.
-     * @param onWindowListener
+     * @param onWindowListener onWindowListener
      */
     void setOnWindowListener(OnWindowListener onWindowListener);
 
     /**
      * update window layout location.
-     * @param x
-     * @param y
+     * @param x x
+     * @param y y
      */
     void updateWindowViewLayout(int x, int y);
 
     /**
      * setting window drag enable. default true.
-     * @param dragEnable
+     * @param dragEnable dragEnable
      */
     void setDragEnable(boolean dragEnable);
 
     /**
      * show window, default animation show.
      * if you want no animation, you can config it by FloatWindowParams.
-     * @return
+     * @return boolean
      */
     boolean show();
 
     /**
      * show window and play your setting animators.
-     * @param items
-     * @return
+     * @param items items
+     * @return boolean
      */
     boolean show(Animator... items);
 
@@ -85,13 +70,13 @@ public interface IWindow {
 
     /**
      * close window and play your setting animators.
-     * @param items
+     * @param items items
      */
     void close(Animator... items);
 
     /**
      * whether or not window show.
-     * @return
+     * @return boolean
      */
     boolean isWindowShow();
 

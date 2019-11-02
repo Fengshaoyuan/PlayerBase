@@ -1,33 +1,19 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.receiver;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.kk.taurus.playerbase.log.PLog;
 
 /**
- * Created by Taurus on 2018/3/17.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
-
 public abstract class BaseReceiver implements IReceiver, StateGetter {
 
     private Context mContext;
@@ -43,7 +29,7 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
      * please pass in the context of Activity.
      * Use it carefully to avoid memory leaks
      *
-     * @param context
+     * @param context context
      *
      */
     public BaseReceiver(Context context){
@@ -69,7 +55,7 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
      * Bind the ReceiverGroup. This method is called by the inside of the framework.
      * Please do not call this method.
      *
-     * @param receiverGroup
+     * @param receiverGroup receiverGroup
      */
     @Override
     public final void bindGroup(@NonNull IReceiverGroup receiverGroup) {
@@ -97,7 +83,7 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
      * Bind the listener. This method is called by the inside of the framework.
      * Please do not call this method.
      *
-     * @param onReceiverEventListener
+     * @param onReceiverEventListener onReceiverEventListener
      */
     @Override
     public final void bindReceiverEventListener(OnReceiverEventListener onReceiverEventListener) {
@@ -106,8 +92,8 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
 
     /**
      * A receiver sends an event, and the receiver in the same group can receive the event.
-     * @param eventCode
-     * @param bundle
+     * @param eventCode eventCode
+     * @param bundle bundle
      */
     protected final void notifyReceiverEvent(int eventCode, Bundle bundle){
         if(mOnReceiverEventListener!=null)
@@ -119,8 +105,8 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
      * make sure that the key value you imported is correct.
      *
      * @param key The unique value of a receiver can be found.
-     * @param eventCode
-     * @param bundle
+     * @param eventCode eventCode
+     * @param bundle bundle
      *
      * @return Bundle Return value after the receiver's response, nullable.
      *
@@ -141,10 +127,10 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
 
     /**
      * private event
-     * @param eventCode
-     * @param bundle
+     * @param eventCode eventCode
+     * @param bundle bundle
      *
-     * @return
+     * @return Bundle
      */
     @Override
     public Bundle onPrivateEvent(int eventCode, Bundle bundle) {
@@ -153,8 +139,8 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
 
     /**
      * producer event from producers send.
-     * @param eventCode
-     * @param bundle
+     * @param eventCode eventCode
+     * @param bundle bundle
      */
     @Override
     public void onProducerEvent(int eventCode, Bundle bundle) {
@@ -163,8 +149,8 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
 
     /**
      * producer data from producers send
-     * @param key
-     * @param data
+     * @param key key
+     * @param data data
      */
     @Override
     public void onProducerData(String key, Object data) {
@@ -186,7 +172,7 @@ public abstract class BaseReceiver implements IReceiver, StateGetter {
 
     /**
      * the receiver key you put.
-     * @return
+     * @return String
      */
     @Override
     public final String getKey() {

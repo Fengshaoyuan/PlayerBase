@@ -1,32 +1,18 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.receiver;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.IntRange;
 import android.view.View;
+
+import androidx.annotation.IntRange;
 
 import com.kk.taurus.playerbase.assist.InterEvent;
 
 /**
- * Created by Taurus on 2018/3/17.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
-
 public abstract class BaseCover extends BaseReceiver implements
         ICover, ICoverHandle, View.OnAttachStateChangeListener {
 
@@ -139,7 +125,7 @@ public abstract class BaseCover extends BaseReceiver implements
      * otherwise the lower priority will be placed below.
      *
      * @param priority range from 0-31
-     * @return
+     * @return int
      */
     protected final int levelLow(@IntRange(from = 0, to = 31)int priority){
         return levelPriority(ICover.COVER_LEVEL_LOW, priority);
@@ -151,7 +137,7 @@ public abstract class BaseCover extends BaseReceiver implements
      * otherwise the lower priority will be placed below.
      *
      * @param priority range from 0-31
-     * @return
+     * @return int
      */
     protected final int levelMedium(@IntRange(from = 0, to = 31)int priority){
         return levelPriority(ICover.COVER_LEVEL_MEDIUM, priority);
@@ -163,7 +149,7 @@ public abstract class BaseCover extends BaseReceiver implements
      * otherwise the lower priority will be placed below.
      *
      * @param priority range from 0-31
-     * @return
+     * @return int
      */
     protected final int levelHigh(@IntRange(from = 0, to = 31)int priority){
         return levelPriority(ICover.COVER_LEVEL_HIGH, priority);

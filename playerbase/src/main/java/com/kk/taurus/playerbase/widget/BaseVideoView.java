@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.widget;
 
 import android.content.Context;
@@ -21,12 +5,13 @@ import android.graphics.Rect;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.kk.taurus.playerbase.assist.InterEvent;
 import com.kk.taurus.playerbase.assist.OnVideoViewEventHandler;
@@ -51,11 +36,11 @@ import com.kk.taurus.playerbase.render.RenderTextureView;
 import com.kk.taurus.playerbase.style.IStyleSetter;
 import com.kk.taurus.playerbase.style.StyleSetter;
 
-
 /**
- * Created by Taurus on 2018/3/17.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
-
 public class BaseVideoView extends FrameLayout implements IVideoView, IStyleSetter {
 
     final String TAG = "BaseVideoView";
@@ -124,7 +109,7 @@ public class BaseVideoView extends FrameLayout implements IVideoView, IStyleSett
      * {@link SuperContainer#dispatchPlayEvent(int, Bundle)}
      * {@link SuperContainer#dispatchErrorEvent(int, Bundle)}
      *
-     * @return
+     * @return SuperContainer
      */
     public final SuperContainer getSuperContainer(){
         return mSuperContainer;
@@ -174,7 +159,7 @@ public class BaseVideoView extends FrameLayout implements IVideoView, IStyleSett
     /**
      * if you need , you can set a data provider.{@link IDataProvider}
      * you need call this method before {@link this#setDataSource(DataSource)}.
-     * @param dataProvider
+     * @param dataProvider dataProvider
      */
     public void setDataProvider(IDataProvider dataProvider) {
         mPlayer.setDataProvider(dataProvider);
@@ -182,7 +167,7 @@ public class BaseVideoView extends FrameLayout implements IVideoView, IStyleSett
 
     /**
      * set a listener for DataProvider handle data source.
-     * @param onProviderListener
+     * @param onProviderListener onProviderListener
      */
     public void setOnProviderListener(IDataProvider.OnProviderListener onProviderListener){
         mPlayer.setOnProviderListener(onProviderListener);
@@ -219,7 +204,7 @@ public class BaseVideoView extends FrameLayout implements IVideoView, IStyleSett
     /**
      * if you set receiver group , you need self handle receivers event ,
      * example if you set a controller cover ,you need self handle seek event etc.
-     * @param receiverGroup
+     * @param receiverGroup receiverGroup
      */
     public void setReceiverGroup(IReceiverGroup receiverGroup){
         mSuperContainer.setReceiverGroup(receiverGroup);
@@ -423,7 +408,7 @@ public class BaseVideoView extends FrameLayout implements IVideoView, IStyleSett
     /**
      * If you want to start play at a specified time,
      * please set this method.
-     * @param msc
+     * @param msc msc
      */
     @Override
     public void start(int msc) {

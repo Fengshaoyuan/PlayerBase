@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.render;
 
 import android.content.Context;
@@ -30,13 +14,13 @@ import com.kk.taurus.playerbase.player.IPlayer;
 import java.lang.ref.WeakReference;
 
 /**
- * Created by Taurus on 2017/11/19.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  *
  * 使用TextureView时，需要开启硬件加速（系统默认是开启的）。
  * 如果硬件加速是关闭的，会造成{@link SurfaceTextureListener#onSurfaceTextureAvailable(SurfaceTexture, int, int)}不执行。
- *
  */
-
 public class RenderTextureView extends TextureView implements IRender {
 
     final String TAG = "RenderTextureView";
@@ -63,7 +47,7 @@ public class RenderTextureView extends TextureView implements IRender {
     /**
      * If you want to take over the life cycle of SurfaceTexture,
      * please set the tag to true.
-     * @param takeOverSurfaceTexture
+     * @param takeOverSurfaceTexture takeOverSurfaceTexture
      */
     public void setTakeOverSurfaceTexture(boolean takeOverSurfaceTexture){
         this.mTakeOverSurfaceTexture = takeOverSurfaceTexture;
@@ -198,9 +182,7 @@ public class RenderTextureView extends TextureView implements IRender {
                 }
                 boolean available = surfaceTexture!=null && !isReleased;
                 //When the user sets the takeover flag and SurfaceTexture is available.
-                if(textureView.isTakeOverSurfaceTexture()
-                        && available
-                        && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+                if(textureView.isTakeOverSurfaceTexture() && available){
                     //if SurfaceTexture not set or current is null, need set it.
                     if(!surfaceTexture.equals(useTexture)){
                         textureView.setSurfaceTexture(surfaceTexture);

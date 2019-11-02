@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.render;
 
 import android.view.View;
@@ -22,13 +6,13 @@ import com.kk.taurus.playerbase.player.IPlayer;
 import com.kk.taurus.playerbase.widget.BaseVideoView;
 
 /**
- * Created by Taurus on 2017/11/19.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  *
  * frame rendering view,
  * using the method can refer to BaseVideoView {@link BaseVideoView}
- *
  */
-
 public interface IRender {
 
     //use TextureView for render
@@ -41,7 +25,7 @@ public interface IRender {
 
     /**
      * update video rotation, such as some video maybe rotation 90 degree.
-     * @param degree
+     * @param degree degree
      */
     void setVideoRotation(int degree);
 
@@ -58,14 +42,14 @@ public interface IRender {
      * {@link AspectRatio#AspectRatio_MATCH_PARENT}
      * {@link AspectRatio#AspectRatio_ORIGIN}
      *
-     * @param aspectRatio
+     * @param aspectRatio aspectRatio
      */
     void updateAspectRatio(AspectRatio aspectRatio);
 
     /**
      * update video size ,width and height.
-     * @param videoWidth
-     * @param videoHeight
+     * @param videoWidth videoWidth
+     * @param videoHeight videoHeight
      */
     void updateVideoSize(int videoWidth, int videoHeight);
 
@@ -78,7 +62,7 @@ public interface IRender {
 
     /**
      * render is released ?
-     * @return
+     * @return boolean
      */
     boolean isReleased();
 
@@ -90,6 +74,7 @@ public interface IRender {
      * {@link RenderTextureView.InternalRenderHolder#bindPlayer(IPlayer)}
      *
      */
+    @SuppressWarnings("JavadocReference")
     interface IRenderHolder{
         void bindPlayer(IPlayer player);
     }

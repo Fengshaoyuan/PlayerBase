@@ -3,10 +3,11 @@ package com.kk.taurus.playerbase.record;
 import android.util.LruCache;
 
 /**
- * Created by Taurus on 2018/12/12.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  *
  * play position  memory record, use LruCache.
- *
  */
 public class RecordCache {
 

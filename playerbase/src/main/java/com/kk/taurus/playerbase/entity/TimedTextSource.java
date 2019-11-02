@@ -3,7 +3,9 @@ package com.kk.taurus.playerbase.entity;
 import java.io.Serializable;
 
 /**
- * Created by Taurus on 2018/12/11.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
 public class TimedTextSource implements Serializable {
 

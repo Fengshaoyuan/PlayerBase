@@ -40,9 +40,10 @@ import com.kk.taurus.playerbase.event.OnPlayerEventListener;
 import java.util.HashMap;
 
 /**
- * Created by Taurus on 2018/3/17.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
-
 public class SysMediaPlayer extends BaseInternalPlayer {
 
     final String TAG = "SysMediaPlayer";
@@ -417,20 +418,16 @@ public class SysMediaPlayer extends BaseInternalPlayer {
         if(timedTextSource==null)
             return;
         try{
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
-                mMediaPlayer.addTimedTextSource(timedTextSource.getPath(), timedTextSource.getMimeType());
-                MediaPlayer.TrackInfo[] trackInfos = mMediaPlayer.getTrackInfo();
-                if (trackInfos != null && trackInfos.length > 0){
-                    for (int i = 0; i < trackInfos.length; i++){
-                        final MediaPlayer.TrackInfo info = trackInfos[i];
-                        if (info.getTrackType() == MediaPlayer.TrackInfo.MEDIA_TRACK_TYPE_TIMEDTEXT){
-                            mMediaPlayer.selectTrack(i);
-                            break;
-                        }
+            mMediaPlayer.addTimedTextSource(timedTextSource.getPath(), timedTextSource.getMimeType());
+            MediaPlayer.TrackInfo[] trackInfos = mMediaPlayer.getTrackInfo();
+            if (trackInfos != null && trackInfos.length > 0){
+                for (int i = 0; i < trackInfos.length; i++){
+                    final MediaPlayer.TrackInfo info = trackInfos[i];
+                    if (info.getTrackType() == MediaPlayer.TrackInfo.MEDIA_TRACK_TYPE_TIMEDTEXT){
+                        mMediaPlayer.selectTrack(i);
+                        break;
                     }
                 }
-            }else{
-                PLog.e(TAG,"not support setting timed text source !");
             }
         }catch (Exception e){
             PLog.e(TAG,"addTimedTextSource error !");

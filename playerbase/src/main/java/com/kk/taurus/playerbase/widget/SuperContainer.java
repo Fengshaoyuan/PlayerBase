@@ -1,29 +1,15 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
 
 import com.kk.taurus.playerbase.event.IEventDispatcher;
 import com.kk.taurus.playerbase.extension.BaseEventProducer;
@@ -47,9 +33,10 @@ import com.kk.taurus.playerbase.touch.ContainerTouchHelper;
 
 
 /**
- * Created by Taurus on 2018/3/17.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
-
 public class SuperContainer extends FrameLayout implements OnTouchGestureListener {
 
     final String TAG = "SuperContainer";
@@ -88,6 +75,7 @@ public class SuperContainer extends FrameLayout implements OnTouchGestureListene
         setGestureEnable(true);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return mTouchHelper.onTouch(event);
@@ -154,7 +142,7 @@ public class SuperContainer extends FrameLayout implements OnTouchGestureListene
     /**
      * add a event producer by yourself custom.
      *
-     * @param eventProducer
+     * @param eventProducer eventProducer
      *
      */
     public void addEventProducer(BaseEventProducer eventProducer){
@@ -163,8 +151,8 @@ public class SuperContainer extends FrameLayout implements OnTouchGestureListene
 
     /**
      * remove event producer.
-     * @param eventProducer
-     * @return
+     * @param eventProducer eventProducer
+     * @return boolean
      */
     public boolean removeEventProducer(BaseEventProducer eventProducer){
         return mProducerGroup.removeEventProducer(eventProducer);

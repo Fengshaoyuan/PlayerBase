@@ -1,7 +1,9 @@
 package com.kk.taurus.playerbase.record;
 
 /**
- * Created by Taurus on 2018/12/12.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
 public interface PlayValueGetter {
 

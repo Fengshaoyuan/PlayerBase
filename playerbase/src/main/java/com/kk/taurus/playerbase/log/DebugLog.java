@@ -1,19 +1,3 @@
-/*
- * Copyright 2017 jiajunhui<junhui_jia@163.com>
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
- */
-
 package com.kk.taurus.playerbase.log;
 
 import android.os.Bundle;
@@ -23,9 +7,10 @@ import com.kk.taurus.playerbase.event.OnErrorEventListener;
 import com.kk.taurus.playerbase.event.OnPlayerEventListener;
 
 /**
- * Created by Taurus on 2018/4/15.
+ * Time:2019/11/2
+ * Author:RuYIng
+ * Description:
  */
-
 public class DebugLog {
 
     static final String EVENT_TAG_PLAY_EVENT = "frameEvent_play";
@@ -92,9 +77,9 @@ public class DebugLog {
                 break;
             case OnPlayerEventListener.PLAYER_EVENT_ON_TIMER_UPDATE:
                 value = "PLAYER_EVENT_ON_TIMER_UPDATE"
-                        + (bundle!=null?(", curr = " + String.valueOf(bundle.getInt(EventKey.INT_ARG1))
-                        + ",duration = " + String.valueOf(bundle.getInt(EventKey.INT_ARG2))
-                        + ",bufferPercentage = " + String.valueOf(bundle.getInt(EventKey.INT_ARG3))):"");
+                        + (bundle!=null?(", curr = " + bundle.getInt(EventKey.INT_ARG1)
+                        + ",duration = " + bundle.getInt(EventKey.INT_ARG2)
+                        + ",bufferPercentage = " + bundle.getInt(EventKey.INT_ARG3)):"");
                 break;
             case OnPlayerEventListener.PLAYER_EVENT_ON_VIDEO_ROTATION_CHANGED:
                 value = "PLAYER_EVENT_ON_VIDEO_ROTATION_CHANGED";
