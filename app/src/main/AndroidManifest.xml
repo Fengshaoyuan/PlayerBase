@@ -37,10 +37,6 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.BaseVideoViewActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.window.FloatWindowActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"

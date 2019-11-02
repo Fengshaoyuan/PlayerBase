@@ -7,29 +7,32 @@
         android:id="@+id/videoContainer"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#FFFFFF"/>
+        android:background="#FFFFFF" />
 
     <Button
         android:id="@+id/btn_switch_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_below="@id/videoContainer"
-        android:onClick="switchWindowPlay"
         android:background="@color/colorPrimary"
-        android:textSize="16sp"
+        android:onClick="switchWindowPlay"
+        android:text="窗口播放"
         android:textColor="#FFFFFF"
-        android:text="窗口播放"/>
+        android:textSize="16sp" />
 
     <TextView
+        android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/btn_switch_play"
-        android:textSize="14sp"
+        android:layout_below="@id/videoContainer"
+        android:layout_toEndOf="@id/btn_switch_play"
+        android:text="如Window弹出失败，请手动开启应用浮窗权限"
         android:textColor="#000000"
-        android:text="如Window弹出失败，请手动开启应用浮窗权限"/>
+        android:textSize="14sp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/setting_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btn_switch_play" />
 </RelativeLayout>

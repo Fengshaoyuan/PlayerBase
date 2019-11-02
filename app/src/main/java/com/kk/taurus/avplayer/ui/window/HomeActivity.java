@@ -17,9 +17,6 @@ import com.kk.taurus.avplayer.R;
 import com.kk.taurus.playerbase.config.PlayerConfig;
 import com.kk.taurus.playerbase.entity.DecoderPlan;
 
-import com.kk.taurus.avplayer.ui.BaseVideoViewActivity;
-import com.kk.taurus.avplayer.ui.window.FloatWindowActivity;
-
 public class HomeActivity extends AppCompatActivity {
 
     private TextView mInfo;
@@ -71,10 +68,6 @@ public class HomeActivity extends AppCompatActivity {
     private void updateDecoderInfo() {
         DecoderPlan defaultPlan = PlayerConfig.getDefaultPlan();
         mInfo.setText("当前解码方案为:" + defaultPlan.getDesc());
-    }
-
-    public void useBaseVideoView(View view){
-        intentTo(BaseVideoViewActivity.class);
     }
 
     public void useFloatWindow(View view){
