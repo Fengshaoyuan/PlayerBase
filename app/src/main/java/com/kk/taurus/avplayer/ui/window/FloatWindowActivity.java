@@ -117,7 +117,7 @@ public class FloatWindowActivity extends AppCompatActivity
         changeMode(false);
 
         DataSource dataSource = new DataSource();
-        dataSource.setData("https://mov.bn.netease.com/open-movie/nos/mp4/2016/01/11/SBC46Q9DV_hd.mp4");
+        dataSource.setData("https%3A%2F%2Fapi.nxflv.com%2Fdata%2Fiqiyi%2Ff107fe6bdde742123d5a9c4f3bbb76e6.m3u8");
         dataSource.setTitle("神奇的珊瑚");
 
         mAssist.setDataSource(dataSource);
