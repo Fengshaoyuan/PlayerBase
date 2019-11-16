@@ -13,8 +13,7 @@
         android:background="#33000000"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="visible"
-        tools:visibility="gone">
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/cover_player_gesture_operation_volume_icon"
